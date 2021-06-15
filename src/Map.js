@@ -49,6 +49,7 @@ const Map = () => {
       // });
   
       // add tooltip when users mouse move over a point
+
       map.on('mousemove', e => {
         const features = map.queryRenderedFeatures(e.point, {layers: ['School']});
         if (features.length) {
@@ -79,7 +80,6 @@ const Map = () => {
         if (features.length) {
           const feature = features[0];
           setLng(feature.properties.School_Name);
-          setDen(feature.properties.Denomination)
 
 
 
@@ -89,7 +89,7 @@ const Map = () => {
       // Clean up on unmount
       return () => map.remove();
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
-    console.log(this.props.schoolName)
+
     return (
       <div>
         {/* <div className='sidebarStyle'>
@@ -98,7 +98,8 @@ const Map = () => {
         <div className= 'sidebar'>
         <InfoWindow
           schoolName={lng}
-          schoolDen={den}/>
+          //schoolDen={den}
+          />
         </div>
         <div className='map-container' ref={mapContainerRef} />
       </div>
